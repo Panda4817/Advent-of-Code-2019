@@ -10,7 +10,10 @@ class IntcodeComputer:
         self.input = n
 
     def save_input(self, a, b, c):
-        self.numbers[c] = self.input
+        if type(self.input) != list:
+            self.numbers[c] = self.input
+        else:
+            self.numbers[c] = self.input.pop(0)
         return 2
 
     def get_output(self, a, b, c):
